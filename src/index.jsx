@@ -9,17 +9,30 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { Web3ReactProvider } from '@web3-react/core';
 import { ethers } from 'ethers';
 
-const theme = createTheme({
-  palette: {
-    mode: 'light',
-    primary: {
-      //main: '#1a90ff',
-      main: '#1cac1d',
-    },
-    neutral: {
-      main: '#f8f9f9',
-    },
+const mode = "dark"
+const muiThemePalette = mode === "light" ? {
+  mode: 'light',
+  primary: {
+    main: '#1cac1d',
   },
+  neutral: {
+    main: '#f8f9f9',
+  },
+} : {
+  mode: 'dark',
+  primary: {
+    main: '#1a90ff',
+  },
+  neutral: {
+    main:"#2c313c"
+  },
+  text:{
+    primary:"#dadada",
+  }
+}
+
+const theme = createTheme({
+  palette:muiThemePalette,
   typography: {
     fontFamily: ['Poppins', 'sans-serif'].join(','),
   },
